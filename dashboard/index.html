@@ -128,8 +128,9 @@
         </div>
     </div>
     
-    <p class="classes__label">Grades</p>
-    <p style="margin-left: 12px;">Grades go here</p>
+    <div class="grades">
+        <p class="grades__label"></p>
+    </div>
   
     <script>
     var colors = {
@@ -144,6 +145,10 @@
       var classes = document.getElementsByClassName('classes__class');
       for (let i = 0; i < classes.length; i++) {
         classes[i].style.backgroundColor = 'lightgray';
+        classes[i].addEventListener('click', function(e) {
+          var name = e.target.children[0].innerText;
+          document.getElementsByClassName('grades')[0].getElementsByClassName('grades__label')[0].innerText = name;
+        });
       }
       
       var settingsElements = document.getElementsByClassName('class__settingsIcon');
@@ -166,7 +171,7 @@
         colorElements[i].addEventListener('click', function(e) {
           var parent = e.target.parentElement.parentElement.parentElement;
           parent.style.backgroundColor = colors[e.target.classList[1]];
-        })
+        });
       }
     });
     </script>
