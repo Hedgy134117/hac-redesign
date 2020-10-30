@@ -1,28 +1,86 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-body {
-    font-family: 'Roboto', sans-serif;
-    display: flex;
+body { font-family: 'Roboto', sans-serif; }
+.classes { 
+    margin: 12px;
+    display: flex; 
+    flex-direction: column; 
 }
-
-
-.class {
+.classes__label {
+  padding: 12px;
+  font-size: 2rem;
+  font-weight: 700;
+}
+.classes__classes { 
+    margin: 12px;
+    display: flex; 
+    flex-direction: row;
+    overflow-x: scroll;
+}
+.classes__class {
     margin: 12px;
     padding: 12px;
     display: flex;
     flex-direction: column;
-    width: 200px;
+    min-width: 200px;
     border-radius: 6px;
-    box-shadow: 0 4px 2px lightgray;
     text-align: center;
     line-height: 2;
 }
-.class:hover {
+.classes__class:hover {
     cursor: pointer;
 }
 .class__name {
-    font-size: 2rem;
+    font-size: 1.5rem;
     font-weight: 700;
 }
 .class__percent {
-    font-size: 1.5em;
+    font-size: 1.25em;
+}
+.class__settingsIcon {
+    text-align: right;
+}
+.class__settings {
+    margin: 6px;
+    background-color: white;
+    border-radius: 6px;
+}
+.class__settings div {
+  display: flex;
+}
+.class__settings--hidden {
+  display: none;
+}
+.settings__color {
+  margin: 6px;
+  width: 50px;
+  height: 25px;
+  border-radius: 12px;
+}
+.settings__color--red {
+  background-color: #FF9AA2;
+}
+.settings__color--salmon {
+  background-color: #FFB7B2;
+}
+.settings__color--orange {
+  background-color: #FFDAC1;
+}
+.settings__color--yellow {
+  background-color: #E2F0CB;
+}
+.settings__color--green {
+  background-color: #B5EAD7;
+}
+.settings__color--purple {
+  background-color: #C7CEEA;
+}
+
+
+.colors {
+  margin: 12px;
+  display: flex;
+}
+.color {
+  width: 200px;
+  height: 150px;
 }
