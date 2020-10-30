@@ -78,7 +78,9 @@ body { font-family: 'Roboto', sans-serif; }
   background-color: #C7CEEA;
 }
 
-
+.grades {
+  margin: 12px;
+}
 .grades__label {
   padding: 12px;
   font-size: 2rem;
