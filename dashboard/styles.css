@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 body { font-family: 'Roboto', sans-serif; }
+b { font-weight: 700; }
+.hidden {
+  display: none !important;
+}
+
 .classes { 
     margin: 12px;
     display: flex; 
@@ -50,9 +55,6 @@ body { font-family: 'Roboto', sans-serif; }
 .class__settings div {
   display: flex;
 }
-.class__settings--hidden {
-  display: none;
-}
 .settings__color {
   margin: 6px;
   width: 50px;
@@ -80,11 +82,28 @@ body { font-family: 'Roboto', sans-serif; }
 
 .grades {
   margin: 12px;
+  padding: 12px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 .grades__label {
-  padding: 12px;
   font-size: 2rem;
   font-weight: 700;
+}
+.grades__list {
+  margin: 12px;
+  display: flex;
+  flex-direction: column;
+}
+.list__grade {
+  display: grid;
+  grid-template-columns: 40% 20% 20% 20%;
+  padding: 12px;
+  border-bottom: 1px solid lightgray;
+}
+.grade__points, .grade__totalPoints, .grade__percent {
+  text-align: right;
 }
 
 .colors {
