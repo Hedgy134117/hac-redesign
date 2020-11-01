@@ -377,15 +377,21 @@
         "settings__color--purple": "#C7CEEA"
       };
       
+      function cleanClassName(name) {
+        return name.toLowerCase().split(' ').join('')
+      }
+      
       document.addEventListener("DOMContentLoaded", function() {
         var classes = document.getElementsByClassName("classes__class");
+        // Class grades & Default colors
         for (let i = 0; i < classes.length; i++) {
           classes[i].style.backgroundColor = "lightgray";
-          classes[i].addEventListener("click", function(e) {
-            // Animate
-            e.target.classList.add('bounce');
-            e.target.classList.remove('bounce');
-            
+          var color = localStorage.getItem(cleanClassName(classes[i].children[0].innerText) + 'Color');
+          if (color != null) {
+            classes[i].style.backgroundColor = color;
+          }
+          
+          classes[i].addEventListener("click", function(e) {            
             // When clicking on it, update the name of the grades section
             var name = e.target.children[0].innerText;
             document
@@ -395,7 +401,7 @@
             // Update the grades section to the class selected
             var grades = document.getElementsByClassName('grades__list');
             for (let j = 0; j < grades.length; j++) {
-              if (grades[j].id == name.toLowerCase().split(' ').join('') + 'Grades') {
+              if (grades[j].id == cleanClassName(name) + 'Grades') {
                 if (grades[j].classList.contains('hidden')) {
                   grades[j].classList.remove('hidden');
                 }
@@ -409,9 +415,8 @@
           });
         }
 
-        var settingsElements = document.getElementsByClassName(
-          "class__settingsIcon"
-        );
+        // Class settings menu
+        var settingsElements = document.getElementsByClassName("class__settingsIcon");
         for (let i = 0; i < settingsElements.length; i++) {
           settingsElements[i].addEventListener("click", function(e) {
             var parent = e.target.parentElement;
@@ -425,11 +430,15 @@
           });
         }
 
+        // Class colors
         var colorElements = document.getElementsByClassName("settings__color");
         for (let i = 0; i < colorElements.length; i++) {
           colorElements[i].addEventListener("click", function(e) {
             var parent = e.target.parentElement.parentElement.parentElement;
             parent.style.backgroundColor = colors[e.target.classList[1]];
+            
+            var name = parent.children[0].innerText;
+            localStorage.setItem(cleanClassName(name) + 'Color', colors[e.target.classList[1]]);
           });
         }
         
